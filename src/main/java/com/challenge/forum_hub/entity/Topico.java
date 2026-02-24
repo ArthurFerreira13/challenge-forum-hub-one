@@ -1,7 +1,9 @@
 package com.challenge.forum_hub.entity;
 
+import com.challenge.forum_hub.dto.DadosAtualizacaoTopico;
 import com.challenge.forum_hub.dto.DadosCadastroTopico;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -32,4 +34,5 @@ public class Topico {
         this.autor = dados.autor();
         this.curso = dados.curso();
     }
+
 }
