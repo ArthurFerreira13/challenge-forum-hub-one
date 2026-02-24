@@ -1,5 +1,6 @@
 package com.challenge.forum_hub.controller;
 
+import com.challenge.forum_hub.dto.DadosAtualizacaoTopico;
 import com.challenge.forum_hub.dto.DadosCadastroTopico;
 import com.challenge.forum_hub.dto.DadosListagemTopico;
 import com.challenge.forum_hub.entity.Topico;
@@ -28,5 +29,18 @@ public class TopicoController {
     public ResponseEntity<List<DadosListagemTopico>> listar() {
         var lista = service.listar();
         return ResponseEntity.ok(lista);
+    }
+
+    @PutMapping
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoTopico dados) {
+        var dto = service.atualizar(dados);
+        return ResponseEntity.ok(dto);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity excluir(@PathVariable Long id) {
+        service.excluir(id);
+
+        // O padrão REST para exclusão bem-sucedida é o código 204 (No Content)
+        return ResponseEntity.noContent().build();
     }
 }
