@@ -36,3 +36,9 @@ Proteção de Endpoints: A configuração foi definida para que apenas usuários
 
 Criptografia: Senhas são armazenadas utilizando o algoritmo BCrypt, garantindo que nem mesmo o administrador do banco de dados tenha acesso às credenciais originais.
 
+Fluxo de Acesso
+POST /login -> Retorna token.
+
+Request Headers -> Adicione Authorization: Bearer <token>.
+
+Acesso Liberado -> A aplicação valida a assinatura e as permissões.
